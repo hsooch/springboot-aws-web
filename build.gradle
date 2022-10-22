@@ -31,5 +31,6 @@ dependencies {
     compile('org.springframework.session:spring-session-jdbc')
     compile('com.h2database:h2')
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    testCompile('org.springframework.security:spring-security-test')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

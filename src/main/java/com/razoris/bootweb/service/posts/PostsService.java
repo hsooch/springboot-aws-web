@@ -7,6 +7,8 @@ import com.razoris.bootweb.web.dto.PostsResponseDto;
 import com.razoris.bootweb.web.dto.PostsSaveRequestDto;
 import com.razoris.bootweb.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,11 +18,13 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class PostsService {
+    private final Logger log = LoggerFactory.getLogger(PostsService.class);
 
     private final PostsRepository postsRepository;
 
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {
+        log.info("Request to save Posts : {}", requestDto);
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
